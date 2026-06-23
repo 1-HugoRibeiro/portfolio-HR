@@ -1,162 +1,214 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>The H1</title>
-    </head>
-    <link rel="stylesheet" href="Portfolio.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
-    <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="image/Logo.png" alt="Logo" class="logo-img">
-                The H1
-            </div>
-            
-            <!-- Bouton menu (3 tirets) -->
-            <button class="menu" id="menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheH1</title>
+    <link rel="stylesheet" href="Portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
 
-            <!-- Menu de navigation -->
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="Portfolio.html">Présentation</a></li>
-                <li><a href="Competence.html">Compétence</a></li>
-                <li><a href="Projet.html">Projets</a></li>
-                <li><a href="SAE.html">Autres Projets</a></li>
-            </ul>
+<nav>
+    <div class="nav-container">
+        <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="logo">
+            <img src="image/Logo.png" alt="Logo" class="logo-img">
+            The H1
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="spe-fixe">
-            </div>
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-menu" id="navMenu">
+    <li><a href="Portfolio.html" class="active">Présentation</a></li>
+    <li><a href="Competence.html">Compétence</a></li>
+    <li><a href="Projet.html">Projets</a></li>
+    <li><a href="SAE.html">Autres Projets</a></li>
+</ul>
 
-    <div class="page-container">
-        <div class="sidebar">
-            <div class="photo-container">
+<div class="page-container">
+
+    <!-- Sidebar profile -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <div class="photo-wrap">
                 <div class="photo-placeholder">
-                    <img src="image/Moi.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover; border-radius: 18px;">
+                    <img src="image/Moi.jpg" alt="Photo de profil">
                 </div>
             </div>
-            <!-- partie fixe -->
-             <ul>
-                <li>HUGO RIBEIRO</li>
+            <div class="profile-name">Hugo RIBEIRO</div>
+            <div class="profile-title">BUT 2 · Informatique</div>
+
+            <div class="sidebar-divider"></div>
+
+            <p class="sidebar-section-label">Contact</p>
+            <ul class="sidebar-list">
                 <li>20 ans</li>
-                <li>Étudiant en BUT2 INFORMATIQUE</li>
-                <li>
-                    <i class="fa fa-envelope"></i> 
-                    <a href="mailto:hugo.ribeiro4829@gmail.com" id="other-color">Mail</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/hugo-ribeiro-a10436297/" id="other-color">Linkedin</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-github"></i>
-                    <a href="https://github.com/1-HugoRibeiro" id="other-color">Github</a>
-                </li>
-                <li>Français : Langue maternelle</li>
-                <li>Espagnol : B1-B2</li>
-                <li>Anglais : B1</li>
-                <li>
-                    <i class="fa-brands fa-page"></i>
-                    <a href="Competence.html" id="other-color">Html</a> 3,5/5</li>
-                <li>
-                    <i class="fa-brands fa-page" ></i>
-                    <a href="Competence.html" id="other-color">Java</a> 2,5/5</li>
-                <li>
-                    <i class="fa-brands fa-page" ></i>
-                    <a href="Competence.html" id="other-color">SQL</a> 3/5</li>
-                <li>Visual Studio Code</li>
-                <li>Linux Ubuntu/Débian</li>
-             </ul>
-        </div>             
-        <div class="contenu">                 
-            <!-- partie scrollable normale -->
-             <div class="image-contenu">
-                <div class="midtop">
-                    Bienvenue. Je m'appelle Hugo Ribeiro et j'ai 20 ans.<br/> <br/>
-                    Je suis en 2ème année de BUT informatique à l'IUT de Villetaneuse.
-                    Avant cela, j'ai fait un BAC STI2D (Sciences et Technologie de l'Industrie et du Développement Durable) option SIN (Systèmes d'Information et Numérique).
-                    <br/>
-                    <br/>
-                    Durant mes deux années de BUT informatique, j'ai pu acquérir des compétences en codage informatique en Java, en SQL et en HTML.  
-                    J'ai pu, par ailleur, améliorer ces compétences lors de différents projet universitaire, comme, par exemple, un jeu d'échecs en java, une création et implémentation d'une base de données en PostgreSql ou un site web pour les 24h de l'informatique en html. 
-                    <br/>
-                    <br/>
-                    Le développement web et le développement full-stack sont des notions qui m'intéressent beaucoup et j'aimerais, à la suite de mes études, pouvoir m'orienter dans l'un de ces secteurs pour devenir développeur web ou développeur full-stack.
-                    <br/>
-                    <br/>
-                    <img src="image/dev_web.jpg">
-                    <br/>
-                    <br/>
-                    En février-mars 2026, j'ai réaliser un stage de 8 semaines en entreprise en tant que développeur informatique pour un atelier de pâtisserie, glacerie et chocolaterie. Lors de ce stage, j'ai du apprendre ce qu'était un iste WordPress et comment il était réaliser.
-                    J'ai aussi du faire faire une extension php, à part, pour pouvoir récupérer des étiquettes de ce colis sur d'autres site internet. Grâce à cette expérience, 
-                    j'ai pu utiliser et améliorer les bases que j'avais acquis en php quelque mois avant, lors d'une saé, en utilisant une approche MVC.
-                    <br/>
-                    <br/>
-               </div>             
+                <li>Villetaneuse, 93</li>
+                <li><a href="mailto:hugo.ribeiro4829@gmail.com" class="sidebar-link">✉ Mail</a></li>
+                <li><a href="https://www.linkedin.com/in/hugo-ribeiro-a10436297/" class="sidebar-link">in LinkedIn</a></li>
+                <li><a href="https://github.com/1-HugoRibeiro" class="sidebar-link">⌥ GitHub</a></li>
+            </ul>
+
+            <div class="sidebar-divider"></div>
+
+            <p class="sidebar-section-label">Langues</p>
+            <ul class="sidebar-list">
+                <li><span class="label">Français</span> — Natif</li>
+                <li><span class="label">Espagnol</span> — B1–B2</li>
+                <li><span class="label">Anglais</span> — B1</li>
+            </ul>
+
+            <div class="sidebar-divider"></div>
+
+            <p class="sidebar-section-label">Compétences</p>
+            <div class="skill-row">
+                <div class="skill-item">
+                    <span class="skill-name">HTML</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+                    <span class="skill-score">3.5/5</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">CSS</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+                    <span class="skill-score">3/5</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Java</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div>
+                    <span class="skill-score">2.5/5</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">SQL</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+                    <span class="skill-score">3/5</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Python</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:45%"></div></div>
+                    <span class="skill-score">2/5</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">PHP</span>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:20%"></div></div>
+                    <span class="skill-score">1/5</span>
+                </div>
             </div>
-        </div>         
-    </div>
 
-    <footer>
-    </footer>
+            <div class="sidebar-divider"></div>
 
-    </body>
-    <script>
-        // Récupérer les éléments HTML
-        const menu = document.getElementById('menu');
-        const navMenu = document.getElementById('navMenu');
+            <p class="sidebar-section-label">Outils</p>
+            <ul class="sidebar-list">
+                <li>Visual Studio Code</li>
+                <li>Linux Ubuntu / Debian</li>
+                <li>Git / GitHub</li>
+                <li>PostgreSQL</li>
+            </ul>
+        </div>
+    </aside>
 
-        // Ajouter un écouteur d'événement sur le clic du bouton menu
-        menu.addEventListener('click', function() {
-            // Alterner (toggle) la classe 'active' sur le bouton et le menu
-            menu.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+    <!-- Main scrollable content -->
+    <main class="main-content">
 
-        // Fermer le menu automatiquement quand on clique sur un lien
-        const navLinks = document.querySelectorAll('.nav-menu');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                menu.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+        <div class="intro-hero reveal">
+            <p class="intro-eyebrow">// Portfolio · 2026</p>
+            <h1 class="intro-name">Hugo<br><span>RIBEIRO</span></h1>
+            <p class="intro-role">Étudiant en 2èm année de BUT informatique</p>
+            <div class="tag-row">
+                <span class="tag">BUT Informatique</span>
+                <span class="tag">IUT Villetaneuse</span>
+                <span class="tag">Dev Web</span>
+                <span class="tag">Full-Stack</span>
+            </div>
+        </div>
 
-        document.addEventListener('Loaded', function () {
-            const Qui = document.getElementById('Présentation');
-            if(Qui){
-                Qui.addEventListener('click', function() {
-                    window.location.href = 'Présentation.html';
-                });
-            }
-        });
+        <div class="section-card reveal">
+            <div class="section-header">
+                <span class="dot"></span>
+                <h2>À propos</h2>
+            </div>
+            <p>
+                Bienvenue. Je suis en 2ème année de BUT informatique à l'IUT de Villetaneuse.
+                Avant cela, j'ai obtenu un BAC STI2D option SIN (Systèmes d'Information et Numérique).
+            </p>
+            <br>
+            <p>
+                Durant mes deux années de BUT, j'ai acquis des compétences en Java, SQL et HTML/CSS.
+                Ces compétences ont été approfondies au travers de projets universitaires : un jeu d'échecs en Java,
+                une base de données PostgreSQL, ou encore un site web pour les 24h de l'info.
+            </p>
+            <br>
+            <p>
+                Le développement web et le full-stack m'intéressent particulièrement.
+                Mon objectif à terme est de m'orienter vers un poste de développeur web ou full-stack.
+            </p>
+            <div class="tag-row" style="margin-top:1.25rem;">
+                <span class="tag">Développement Web</span>
+                <span class="tag">Full-Stack</span>
+                <span class="tag">Java</span>
+                <span class="tag">PostgreSQL</span>
+            </div>
+        </div>
 
-        /* window.addEventListener('scroll', function() {
-            const banniere = document.querySelector('.banniere img');
-            const hauteurBanniere = banniere.offsetHeight;
-            const scroll = window.scrollY;
+        <!-- Stage highlight -->
+        <div class="reveal">
+            <div class="stage-card">
+                <span class="stage-badge">Stage · Fév – Mar 2026 · 8 semaines</span>
+                <h3>Développeur informatique en pâtisserie artisanale</h3>
+                <p>
+                    Stage en entreprise pour un atelier de pâtisserie, glacerie et chocolaterie.
+                    Création d'un site WordPress et développement d'une extension PHP sur mesure
+                    pour récupérer des étiquettes de colis depuis des sites tiers.
+                    Utilisation d'une architecture MVC, renforçant les bases PHP acquises en SAÉ.
+                </p>
+                <div class="tag-row" style="margin-top:1rem;">
+                    <span class="tag">WordPress</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">MVC</span>
+                    <span class="tag">Extension WP</span>
+                </div>
+            </div>
+        </div>
 
-            // L'image disparait progressivement en scrollant
-            const opacite = 1 - (scroll / hauteurBanniere);
-            banniere.style.opacity = Math.max(0, opacite);
-        }); */
+        <div class="section-card reveal">
+            <div class="section-header">
+                <span class="dot"></span>
+                <h2>Formation</h2>
+            </div>
+            <ul class="sidebar-list" style="gap:1rem;">
+                <li style="flex-direction:column; align-items:flex-start; gap:0.2rem;">
+                    <span class="label" style="font-size:0.9rem;">BUT Informatique — IUT de Villetaneuse</span>
+                    <span style="font-size:0.78rem; color:var(--text-muted);">2024 – en cours · Parcours Développement Logiciel</span>
+                </li>
+                <li style="flex-direction:column; align-items:flex-start; gap:0.2rem;">
+                    <span class="label" style="font-size:0.9rem;">BAC STI2D option SIN</span>
+                    <span style="font-size:0.78rem; color:var(--text-muted);">2021 – 2024 · Systèmes d'Information et Numérique</span>
+                </li>
+            </ul>
+        </div>
 
-        const banniere = document.querySelector('.banniere-scroll');
+    </main>
+</div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-          });
-        });
+<footer>
+    <p>© 2026 Hugo Ribeiro · The H1 · Tous droits réservés</p>
+</footer>
 
-        observer.observe(banniere);
-    </script>
+<script>
+(function() {
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('navMenu');
+    const overlay = document.getElementById('navOverlay');
+    function close() { btn.classList.remove('active'); menu.classList.remove('active'); overlay.classList.remove('active'); }
+    btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('active'); overlay.classList.toggle('active'); });
+    overlay.addEventListener('click', close);
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+</script>
+</body>
 </html>
