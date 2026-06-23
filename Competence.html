@@ -1,333 +1,311 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>The H1: Compétence</title>
-    </head>
-    <link rel="stylesheet" href="Portfolio.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
-    <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="image/Logo.png" alt="Logo" class="logo-img">
-                The H1
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The H1 : Compétences</title>
+    <link rel="stylesheet" href="Portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .comp-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .comp-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .comp-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--cyan-dim);
+            border: 1px solid rgba(0,212,255,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .comp-title-wrap {
+            flex: 1;
+        }
+        .comp-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--cyan);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.2rem;
+        }
+        .comp-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .comp-desc {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .comp-level-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .comp-level-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            width: 80px;
+            flex-shrink: 0;
+        }
+        .comp-bar-track {
+            flex: 1;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1); /* Un gris léger si le fond est clair, ou rgba(255,255,255,0.1) si le fond est sombre */
+            border-radius: 99px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05); /* Optionnel : ajoute une légère bordure */
+        }
+
+        .comp-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+        }
+        /* Barre BUT 1 : Violet opaque pour être sûr de la voir */
+        .fill-but1 { 
+            background-color: #4811e0 !important; 
+        }
+
+        /* Barre BUT 2 : Cyan vif (et couleur de secours #00d4ff si la variable n'existe pas) */
+        .fill-but2 { 
+            background-color: var(--cyan, #00d4ff) !important; 
+        
+        }
+        .comp-pct {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            width: 36px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="logo">
+            <img src="image/Logo.png" alt="Logo" class="logo-img">
+            The H1
+        </div>
+    </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-menu" id="navMenu">
+    <li><a href="Portfolio.html">Présentation</a></li>
+    <li><a href="Competence.html" class="active">Compétence</a></li>
+    <li><a href="Projet.html">Projets</a></li>
+    <li><a href="SAE.html">Autres Projets</a></li>
+</ul>
+
+<main class="main-content" style="margin-left:0; max-width:860px; margin:0 auto; padding-top:2.5rem;">
+
+    <div class="reveal" style="margin-bottom:2rem;">
+        <h1 style="font-size:1.8rem; margin-bottom:0.5rem;">Compétences</h1>
+    </div>
+
+    <div class="comp-grid">
+
+        <div class="comp-item section-card reveal">
+            <div class="comp-header">
+                <div class="comp-icon">⚙️</div>
+                <div class="comp-title-wrap">
+                    <div class="comp-number">C1 · RÉALISER</div>
+                    <div class="comp-name">Réaliser un développement applicatif</div>
+                </div>
             </div>
-            
-            <!-- Bouton menu (3 tirets) -->
-            <button class="menu" id="menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- Menu de navigation -->
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="Portfolio.html">Présentation</a></li>
-                <li><a href="Competence.html">Compétence</a></li>
-                <li><a href="Projet.html">Projets</a></li>
-                <li><a href="SAE.html">Autres Projets</a></li>
-            </ul>
-        </div>
-    </nav>
-    <h1 class="page-title">Mes <span>Compétences</span></h1>
-  <p class="page-intro">Six compétences clés acquises en BUT informatique.</p>
-
-  <!-- ─────────────── C1 : RÉALISER ─────────────── -->
-  <section class="competence-section">
-    <div class="page2">
-      <div class="comp-icon">
-        <!-- icône code -->
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="20 20 8 32 20 44"/>
-          <polyline points="44 20 56 32 44 44"/>
-          <line x1="36" y1="14" x2="28" y2="50"/>
-        </svg>
-      </div>
-      <div class="info">
-        <span class="comp-badge">C1</span>
-        <h3>Réaliser</h3>
-        <p class="comp-desc">Concevoir et développer des solutions applicatives répondant aux besoins fonctionnels et techniques, en respectant les normes de qualité et de sécurité.</p>
-
-        <div class="barre-label"><span>Développement web</span><span>85%</span></div>
-        <div class="barre-bg">
-          <div class="barre-wrapper">
-            <div class="BUT2" style="width:0" data-width="85%"></div>
-          </div>
+            <p class="comp-desc">
+                Concevoir et développer des applications répondant à des besoins utilisateurs,
+                en appliquant les bonnes pratiques de développement : lisibilité du code, découpage en fonctions,
+                respect des spécifications. Travaillé notamment via Java (jeu d'échecs) et HTML/CSS/JS (sites web).
+            </p>
+            <div class="year-bars">
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 1 · 2025</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but1" style="width:55%"></div></div>
+                    <span class="comp-pct">55%</span>
+                </div>
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 2 · 2026</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:70%"></div></div>
+                    <span class="comp-pct">70%</span>
+                </div>
+            </div>
         </div>
 
-        <div class="barre-label"><span>Algorithmique</span><span>75%</span></div>
-        <div class="barre-bg">
-          <div class="BUT1" style="width:0" data-width="75%"></div>
+        <div class="comp-item section-card reveal">
+            <div class="comp-header">
+                <div class="comp-icon">📈</div>
+                <div class="comp-title-wrap">
+                    <div class="comp-number">C2 · OPTIMISER</div>
+                    <div class="comp-name">Optimiser des applications</div>
+                </div>
+            </div>
+            <p class="comp-desc">
+                Analyser et améliorer les performances d'un programme : complexité algorithmique,
+                structures de données adaptées, réduction de la consommation mémoire.
+                Abordé en cours d'algorithmique et mis en pratique lors de projets Java et Python.
+            </p>
+            <div class="year-bars">
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 1 · 2025</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but1" style="width:40%"></div></div>
+                    <span class="comp-pct">40%</span>
+                </div>
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 2 · 2026</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:55%"></div></div>
+                    <span class="comp-pct">55%</span>
+                </div>
+            </div>
         </div>
 
-        <div class="barre-label"><span>Base de données</span><span>80%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="80%"></div>
+        <div class="comp-item section-card reveal">
+            <div class="comp-header">
+                <div class="comp-icon">🗄️</div>
+                <div class="comp-title-wrap">
+                    <div class="comp-number">C3 · ADMINISTRER</div>
+                    <div class="comp-name">Administrer des systèmes informatiques</div>
+                </div>
+            </div>
+            <p class="comp-desc">
+                Installer, configurer et maintenir des environnements informatiques : systèmes Linux (Ubuntu, Debian),
+                serveurs, bases de données PostgreSQL. Utilisation quotidienne d'un terminal et gestion des droits et services.
+            </p>
+            <div class="year-bars">
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 1 · 2025</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but1" style="width:35%"></div></div>
+                    <span class="comp-pct">35%</span>
+                </div>
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 2 · 2026</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:50%"></div></div>
+                    <span class="comp-pct">50%</span>
+                </div>
+            </div>
         </div>
 
-        <div class="legende">
-          <span><span class="dot" style="background:#011830"></span>Théorie</span>
-          <span><span class="dot" style="background:#378ADD"></span>Pratique</span>
+        <div class="comp-item section-card reveal">
+            <div class="comp-header">
+                <div class="comp-icon">🗂️</div>
+                <div class="comp-title-wrap">
+                    <div class="comp-number">C4 · GÉRER</div>
+                    <div class="comp-name">Gérer des données de l'information</div>
+                </div>
+            </div>
+            <p class="comp-desc">
+                Concevoir, implémenter et interroger des bases de données relationnelles.
+                Modélisation (MCD, MLD), requêtes SQL avancées, intégration dans des applications web via PHP
+                avec une approche MVC — mis en pratique lors du stage et de plusieurs SAÉ.
+            </p>
+            <div class="year-bars">
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 1 · 2025</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but1" style="width:45%"></div></div>
+                    <span class="comp-pct">45%</span>
+                </div>
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 2 · 2026</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:65%"></div></div>
+                    <span class="comp-pct">65%</span>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="comp-item section-card reveal">
+            <div class="comp-header">
+                <div class="comp-icon">🧭</div>
+                <div class="comp-title-wrap">
+                    <div class="comp-number">C5 · CONDUIRE</div>
+                    <div class="comp-name">Conduire un projet</div>
+                </div>
+            </div>
+            <p class="comp-desc">
+                Planifier et organiser un projet informatique : définition des besoins, découpage en tâches,
+                suivi de l'avancement. Pratiqué lors de projets universitaires en équipe avec répartition des rôles
+                et livrables à rendre dans des délais imposés.
+            </p>
+            <div class="year-bars">
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 1 · 2025</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but1" style="width:40%"></div></div>
+                    <span class="comp-pct">40%</span>
+                </div>
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 2 · 2026</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:55%"></div></div>
+                    <span class="comp-pct">55%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comp-item section-card reveal">
+            <div class="comp-header">
+                <div class="comp-icon">🤝</div>
+                <div class="comp-title-wrap">
+                    <div class="comp-number">C6 · COLLABORER</div>
+                    <div class="comp-name">Travailler dans une équipe informatique</div>
+                </div>
+            </div>
+            <p class="comp-desc">
+                Travailler en équipe sur des projets techniques : utilisation de Git/GitHub pour le versioning,
+                communication avec les membres, adaptation à différents contextes (équipe universitaire, stage en entreprise).
+                Participation à la Nuit de l'Info en équipe Monthy Python.
+            </p>
+            <div class="year-bars">
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 1 · 2025</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but1" style="width:50%"></div></div>
+                    <span class="comp-pct">50%</span>
+                </div>
+                <div class="comp-level-row">
+                    <span class="comp-level-label">BUT 2 · 2026</span>
+                    <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:70%"></div></div>
+                    <span class="comp-pct">70%</span>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─────────────── C2 : OPTIMISER ─────────────── -->
-  <section class="competence-section">
-    <div class="page2">
-      <div class="comp-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="20"/>
-          <polyline points="24 32 30 38 40 26"/>
-        </svg>
-      </div>
-      <div class="info">
-        <span class="comp-badge">C2</span>
-        <h3>Optimiser</h3>
-        <p class="comp-desc">Analyser et améliorer les solutions existantes en termes de performance, de maintenabilité et d'expérience utilisateur.</p>
-
-        <div class="barre-label"><span>Refactoring</span><span>72%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="72%"></div>
-        </div>
-
-        <div class="barre-label"><span>Optimisation BDD</span><span>68%</span></div>
-        <div class="barre-bg">
-          <div class="BUT1" style="width:0" data-width="68%"></div>
-        </div>
-
-        <div class="barre-label"><span>Audit qualité</span><span>60%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="60%"></div>
-        </div>
-
-        <div class="legende">
-          <span><span class="dot" style="background:#011830"></span>Théorie</span>
-          <span><span class="dot" style="background:#378ADD"></span>Pratique</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─────────────── C3 : ADMINISTRER ─────────────── -->
-  <section class="competence-section">
-    <div class="page2">
-      <div class="comp-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="14" width="44" height="28" rx="4"/>
-          <line x1="22" y1="42" x2="22" y2="52"/>
-          <line x1="42" y1="42" x2="42" y2="52"/>
-          <line x1="16" y1="52" x2="48" y2="52"/>
-        </svg>
-      </div>
-      <div class="info">
-        <span class="comp-badge">C3</span>
-        <h3>Administrer</h3>
-        <p class="comp-desc">Installer, configurer et maintenir les infrastructures systèmes et réseaux pour assurer la disponibilité et la sécurité des services.</p>
-
-        <div class="barre-label"><span>Linux / Windows Server</span><span>75%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="75%"></div>
-        </div>
-
-        <div class="barre-label"><span>Virtualisation</span><span>70%</span></div>
-        <div class="barre-bg">
-          <div class="BUT1" style="width:0" data-width="70%"></div>
-        </div>
-
-        <div class="barre-label"><span>Sécurité réseau</span><span>65%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="65%"></div>
-        </div>
-
-        <div class="legende">
-          <span><span class="dot" style="background:#011830"></span>Théorie</span>
-          <span><span class="dot" style="background:#378ADD"></span>Pratique</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─────────────── C4 : GÉRER ─────────────── -->
-  <section class="competence-section">
-    <div class="page2">
-      <div class="comp-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="10" width="40" height="44" rx="4"/>
-          <line x1="20" y1="22" x2="44" y2="22"/>
-          <line x1="20" y1="32" x2="44" y2="32"/>
-          <line x1="20" y1="42" x2="34" y2="42"/>
-        </svg>
-      </div>
-      <div class="info">
-        <span class="comp-badge">C4</span>
-        <h3>Gérer</h3>
-        <p class="comp-desc">Gérer et maintenir le patrimoine informatique d'une organisation, en assurant le suivi des assets, des licences et des incidents.</p>
-
-        <div class="barre-label"><span>Gestion des incidents</span><span>80%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="80%"></div>
-        </div>
-
-        <div class="barre-label"><span>Inventaire & assets</span><span>74%</span></div>
-        <div class="barre-bg">
-          <div class="BUT1" style="width:0" data-width="74%"></div>
-        </div>
-
-        <div class="barre-label"><span>Ticketing GLPI</span><span>82%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="82%"></div>
-        </div>
-
-        <div class="legende">
-          <span><span class="dot" style="background:#011830"></span>Théorie</span>
-          <span><span class="dot" style="background:#378ADD"></span>Pratique</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─────────────── C5 : CONDUIRE ─────────────── -->
-  <section class="competence-section">
-    <div class="page2">
-      <div class="comp-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="22"/>
-          <polyline points="32 18 32 34 42 34"/>
-        </svg>
-      </div>
-      <div class="info">
-        <span class="comp-badge">C5</span>
-        <h3>Conduire</h3>
-        <p class="comp-desc">Planifier, piloter et suivre des projets informatiques en appliquant des méthodes agiles ou classiques pour livrer dans les délais impartis.</p>
-
-        <div class="barre-label"><span>Planification (Gantt)</span><span>70%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="70%"></div>
-        </div>
-
-        <div class="barre-label"><span>Méthode Scrum</span><span>68%</span></div>
-        <div class="barre-bg">
-          <div class="BUT1" style="width:0" data-width="68%"></div>
-        </div>
-
-        <div class="barre-label"><span>Gestion des risques</span><span>62%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="62%"></div>
-        </div>
-
-        <div class="legende">
-          <span><span class="dot" style="background:#011830"></span>Théorie</span>
-          <span><span class="dot" style="background:#378ADD"></span>Pratique</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ─────────────── C6 : COLLABORER ─────────────── -->
-  <section class="competence-section">
-    <div class="page2">
-      <div class="comp-icon">
-        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="22" cy="24" r="8"/>
-          <circle cx="42" cy="24" r="8"/>
-          <path d="M8 52c0-8 6-14 14-14h20c8 0 14 6 14 14"/>
-        </svg>
-      </div>
-      <div class="info">
-        <span class="comp-badge">C6</span>
-        <h3>Collaborer</h3>
-        <p class="comp-desc">Travailler en équipe pluridisciplinaire, partager les connaissances et communiquer efficacement avec les différentes parties prenantes d'un projet.</p>
-
-        <div class="barre-label"><span>Travail en équipe</span><span>88%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="88%"></div>
-        </div>
-
-        <div class="barre-label"><span>Communication orale</span><span>75%</span></div>
-        <div class="barre-bg">
-          <div class="BUT1" style="width:0" data-width="75%"></div>
-        </div>
-
-        <div class="barre-label"><span>Rédaction technique</span><span>78%</span></div>
-        <div class="barre-bg">
-          <div class="BUT2" style="width:0" data-width="78%"></div>
-        </div>
-
-        <div class="legende">
-          <span><span class="dot" style="background:#011830"></span>Théorie</span>
-          <span><span class="dot" style="background:#378ADD"></span>Pratique</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
-    </div>
 
-    <script>
-        // Récupérer les éléments HTML
-        const menu = document.getElementById('menu');
-        const navMenu = document.getElementById('navMenu');
+<footer style="margin-left:0;">
+    <p>© 2026 Hugo Ribeiro · The H1</p>
+</footer>
 
-        // Ajouter un écouteur d'événement sur le clic du bouton menu
-        menu.addEventListener('click', function() {
-            // Alterner (toggle) la classe 'active' sur le bouton et le menu
-            menu.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Fermer le menu automatiquement quand on clique sur un lien
-        const navLinks = document.querySelectorAll('.nav-menu');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                menu.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('Loaded', function () {
-            const Qui = document.getElementById('Présentation');
-            if(Qui){
-                Qui.addEventListener('click', function() {
-                    window.location.href = 'Présentation.html';
-                });
-            }
-        });
-
-        /* window.addEventListener('scroll', function() {
-            const banniere = document.querySelector('.banniere img');
-            const hauteurBanniere = banniere.offsetHeight;
-            const scroll = window.scrollY;
-
-            // L'image disparait progressivement en scrollant
-            const opacite = 1 - (scroll / hauteurBanniere);
-            banniere.style.opacity = Math.max(0, opacite);
-        }); */
-
-        const banniere = document.querySelector('.banniere-scroll');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-          });
-        });
-
-        observer.observe(banniere);
-    </script>
-    </body>
+<script>
+(function() {
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('navMenu');
+    const overlay = document.getElementById('navOverlay');
+    function close() { btn.classList.remove('active'); menu.classList.remove('active'); overlay.classList.remove('active'); }
+    btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('active'); overlay.classList.toggle('active'); });
+    overlay.addEventListener('click', close);
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+</script>
+</body>
 </html>
