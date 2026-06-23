@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The H1 : Compétences</title>
+    <title>The H1 — Compétences</title>
     <link rel="stylesheet" href="Portfolio.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        .comp-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
         .comp-item {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
+        
+        /* Effet au survol de la carte principale */
+        .comp-item:hover {
+            border-color: rgba(0, 212, 255, 0.5) !important;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
         .comp-header {
             display: flex;
             align-items: center;
@@ -21,7 +37,7 @@
             width: 48px;
             height: 48px;
             border-radius: 10px;
-            background: var(--cyan-dim);
+            background: rgba(0,212,255,0.1);
             border: 1px solid rgba(0,212,255,0.25);
             display: flex;
             align-items: center;
@@ -35,7 +51,7 @@
         .comp-number {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: var(--cyan);
+            color: #00d4ff;
             letter-spacing: 0.1em;
             margin-bottom: 0.2rem;
         }
@@ -49,50 +65,114 @@
         }
         .comp-desc {
             font-size: 0.83rem;
-            color: var(--text-muted);
+            color: #a0aec0;
             line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        
+        .year-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            width: 100%;
         }
         .comp-level-row {
             display: flex;
             align-items: center;
             gap: 1rem;
+            width: 100%;
         }
         .comp-level-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem;
-            color: var(--text-muted);
-            width: 80px;
+            color: #a0aec0;
+            width: 90px;
             flex-shrink: 0;
         }
         .comp-bar-track {
             flex: 1;
             height: 8px;
-            background: rgba(0, 0, 0, 0.1); /* Un gris léger si le fond est clair, ou rgba(255,255,255,0.1) si le fond est sombre */
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 99px;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05); /* Optionnel : ajoute une légère bordure */
         }
-
         .comp-bar-fill {
             height: 100%;
             border-radius: 99px;
         }
-        /* Barre BUT 1 : Violet opaque pour être sûr de la voir */
-        .fill-but1 { 
-            background-color: #4811e0 !important; 
-        }
-
-        /* Barre BUT 2 : Cyan vif (et couleur de secours #00d4ff si la variable n'existe pas) */
-        .fill-but2 { 
-            background-color: var(--cyan, #00d4ff) !important; 
+        .fill-but1 { background: #4811e0; }
+        .fill-but2 { background: #00d4ff; }
         
-        }
         .comp-pct {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem;
-            color: var(--text-muted);
+            color: #a0aec0;
             width: 36px;
             text-align: right;
+        }
+
+        /* --- NOUVEAU : SYSTÈME DE DÉPLOIEMENT INTERACTIF (HOVER) --- */
+        .comp-details {
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border-top: 1px dashed rgba(255, 255, 255, 0.0);
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        /* Déploiement quand on passe la souris sur la carte */
+        .comp-item:hover .comp-details {
+            max-height: 1000px; /* Grande valeur pour permettre l'affichage complet */
+            opacity: 1;
+            visibility: visible;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .details-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: #00d4ff;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .sub-comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 0.6rem 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .sub-bar-track {
+            flex: 1;
+            height: 5px; /* Plus fin pour les sous-matières */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .sub-bar-fill {
+            height: 100%;
+            background: rgba(0, 212, 255, 0.6);
+            border-radius: 99px;
+        }
+
+        .comp-bilan {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 2px solid #4811e0;
+            padding: 0.6rem 0.8rem;
+            border-radius: 0 4px 4px 0;
+        }
+        .comp-bilan p {
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            margin: 0;
+            font-style: italic;
         }
     </style>
 </head>
@@ -118,10 +198,11 @@
     <li><a href="SAE.html">Autres Projets</a></li>
 </ul>
 
-<main class="main-content" style="margin-left:0; max-width:860px; margin:0 auto; padding-top:2.5rem;">
+<main class="main-content" style="margin-left:0; max-width:860px; margin:0 auto; padding-top:2.5rem; padding-bottom: 5rem;">
 
     <div class="reveal" style="margin-bottom:2rem;">
         <h1 style="font-size:1.8rem; margin-bottom:0.5rem;">Compétences</h1>
+        <p style="font-size:0.85rem; color:var(--text-muted);">Survolez une compétence pour en afficher les détails et les langages associés.</p>
     </div>
 
     <div class="comp-grid">
@@ -136,8 +217,7 @@
             </div>
             <p class="comp-desc">
                 Concevoir et développer des applications répondant à des besoins utilisateurs,
-                en appliquant les bonnes pratiques de développement : lisibilité du code, découpage en fonctions,
-                respect des spécifications. Travaillé notamment via Java (jeu d'échecs) et HTML/CSS/JS (sites web).
+                en appliquant les bonnes pratiques de développement.
             </p>
             <div class="year-bars">
                 <div class="comp-level-row">
@@ -151,6 +231,22 @@
                     <span class="comp-pct">70%</span>
                 </div>
             </div>
+
+            <div class="comp-details">
+                <div class="details-title">Technologies & Savoirs</div>
+                <div class="sub-comp-grid">
+                    <div class="comp-level-row"><span class="comp-level-label">Java</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:75%"></div></div><span class="comp-pct">75%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Python</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:65%"></div></div><span class="comp-pct">65%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Arch. Logiciels</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:55%"></div></div><span class="comp-pct">55%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Javascript</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:70%"></div></div><span class="comp-pct">70%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Dev Mobile</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:40%"></div></div><span class="comp-pct">40%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Analyse</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:60%"></div></div><span class="comp-pct">60%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Droit Num.</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:50%"></div></div><span class="comp-pct">50%</span></div>
+                </div>
+                <div class="comp-bilan">
+                    <p><strong>Bilan :</strong> Capable de structurer des applications complexes de manière autonome, notamment grâce à une forte maîtrise de la programmation orientée objet en Java et du développement web natif.</p>
+                </div>
+            </div>
         </div>
 
         <div class="comp-item section-card reveal">
@@ -162,9 +258,7 @@
                 </div>
             </div>
             <p class="comp-desc">
-                Analyser et améliorer les performances d'un programme : complexité algorithmique,
-                structures de données adaptées, réduction de la consommation mémoire.
-                Abordé en cours d'algorithmique et mis en pratique lors de projets Java et Python.
+                Analyser et améliorer les performances d'un programme informatique.
             </p>
             <div class="year-bars">
                 <div class="comp-level-row">
@@ -178,6 +272,23 @@
                     <span class="comp-pct">55%</span>
                 </div>
             </div>
+
+            <div class="comp-details">
+                <div class="details-title">Technologies & Savoirs</div>
+                <div class="sub-comp-grid">
+                    <div class="comp-level-row"><span class="comp-level-label">Javascript</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:65%"></div></div><span class="comp-pct">65%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Analyse</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:60%"></div></div><span class="comp-pct">60%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Arch. Réseau</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:45%"></div></div><span class="comp-pct">45%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Cryptographie</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:35%"></div></div><span class="comp-pct">35%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Management</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:50%"></div></div><span class="comp-pct">50%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Anglais</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:75%"></div></div><span class="comp-pct">75%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Dev Mobile</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:40%"></div></div><span class="comp-pct">40%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Graphes</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:50%"></div></div><span class="comp-pct">50%</span></div>
+                </div>
+                <div class="comp-bilan">
+                    <p><strong>Bilan :</strong> Sensibilisé aux problématiques de complexité algorithmique. L'utilisation de structures de données adaptées (graphes, arbres) me permet d'accélérer l'exécution des traitements.</p>
+                </div>
+            </div>
         </div>
 
         <div class="comp-item section-card reveal">
@@ -189,8 +300,7 @@
                 </div>
             </div>
             <p class="comp-desc">
-                Installer, configurer et maintenir des environnements informatiques : systèmes Linux (Ubuntu, Debian),
-                serveurs, bases de données PostgreSQL. Utilisation quotidienne d'un terminal et gestion des droits et services.
+                Installer, configurer et maintenir des environnements informatiques professionnels.
             </p>
             <div class="year-bars">
                 <div class="comp-level-row">
@@ -202,6 +312,19 @@
                     <span class="comp-level-label">BUT 2 · 2026</span>
                     <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:50%"></div></div>
                     <span class="comp-pct">50%</span>
+                </div>
+            </div>
+
+            <div class="comp-details">
+                <div class="details-title">Technologies & Savoirs</div>
+                <div class="sub-comp-grid">
+                    <div class="comp-level-row"><span class="comp-level-label">Arch. Réseau</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:55%"></div></div><span class="comp-pct">55%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Anglais</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:75%"></div></div><span class="comp-pct">75%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Bas Niveau</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:45%"></div></div><span class="comp-pct">45%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Python</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:60%"></div></div><span class="comp-pct">60%</span></div>
+                </div>
+                <div class="comp-bilan">
+                    <p><strong>Bilan :</strong> Bonne maîtrise des commandes Linux et des scripts d'automatisation en Python. Capable d'appréhender le fonctionnement matériel et les architectures réseaux standards.</p>
                 </div>
             </div>
         </div>
@@ -216,8 +339,6 @@
             </div>
             <p class="comp-desc">
                 Concevoir, implémenter et interroger des bases de données relationnelles.
-                Modélisation (MCD, MLD), requêtes SQL avancées, intégration dans des applications web via PHP
-                avec une approche MVC — mis en pratique lors du stage et de plusieurs SAÉ.
             </p>
             <div class="year-bars">
                 <div class="comp-level-row">
@@ -231,6 +352,21 @@
                     <span class="comp-pct">65%</span>
                 </div>
             </div>
+
+            <div class="comp-details">
+                <div class="details-title">Technologies & Savoirs</div>
+                <div class="sub-comp-grid">
+                    <div class="comp-level-row"><span class="comp-level-label">Python</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:65%"></div></div><span class="comp-pct">65%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">SQL</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:80%"></div></div><span class="comp-pct">80%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Management</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:55%"></div></div><span class="comp-pct">55%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Droit Contrat</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:50%"></div></div><span class="comp-pct">50%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Dev Mobile</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:40%"></div></div><span class="comp-pct">40%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Javascript</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:70%"></div></div><span class="comp-pct">70%</span></div>
+                </div>
+                <div class="comp-bilan">
+                    <p><strong>Bilan :</strong> Solide maîtrise du langage SQL (agrégations, jointures complexes). Capable de modéliser proprement un schéma de données (MCD) et de le connecter de manière sécurisée à une application.</p>
+                </div>
+            </div>
         </div>
 
         <div class="comp-item section-card reveal">
@@ -242,9 +378,7 @@
                 </div>
             </div>
             <p class="comp-desc">
-                Planifier et organiser un projet informatique : définition des besoins, découpage en tâches,
-                suivi de l'avancement. Pratiqué lors de projets universitaires en équipe avec répartition des rôles
-                et livrables à rendre dans des délais imposés.
+                Planifier et organiser un projet informatique selon les exigences du client.
             </p>
             <div class="year-bars">
                 <div class="comp-level-row">
@@ -258,6 +392,22 @@
                     <span class="comp-pct">55%</span>
                 </div>
             </div>
+
+            <div class="comp-details">
+                <div class="details-title">Technologies & Savoirs</div>
+                <div class="sub-comp-grid">
+                    <div class="comp-level-row"><span class="comp-level-label">Java</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:70%"></div></div><span class="comp-pct">70%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Management</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:65%"></div></div><span class="comp-pct">65%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Javascript</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:65%"></div></div><span class="comp-pct">65%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Analyse</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:60%"></div></div><span class="comp-pct">60%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Droit Contrat</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:55%"></div></div><span class="comp-pct">55%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Anglais</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:75%"></div></div><span class="comp-pct">75%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Communication</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:70%"></div></div><span class="comp-pct">70%</span></div>
+                </div>
+                <div class="comp-bilan">
+                    <p><strong>Bilan :</strong> Compétent dans la répartition des tâches et le respect des jalons temporels d'un projet. Connaissances clés sur la gestion juridique et contractuelle des livrables numériques.</p>
+                </div>
+            </div>
         </div>
 
         <div class="comp-item section-card reveal">
@@ -269,9 +419,7 @@
                 </div>
             </div>
             <p class="comp-desc">
-                Travailler en équipe sur des projets techniques : utilisation de Git/GitHub pour le versioning,
-                communication avec les membres, adaptation à différents contextes (équipe universitaire, stage en entreprise).
-                Participation à la Nuit de l'Info en équipe Monthy Python.
+                Travailler en équipe sur des projets techniques et s'intégrer dans un milieu professionnel.
             </p>
             <div class="year-bars">
                 <div class="comp-level-row">
@@ -283,6 +431,20 @@
                     <span class="comp-level-label">BUT 2 · 2026</span>
                     <div class="comp-bar-track"><div class="comp-bar-fill fill-but2" style="width:70%"></div></div>
                     <span class="comp-pct">70%</span>
+                </div>
+            </div>
+
+            <div class="comp-details">
+                <div class="details-title">Technologies & Savoirs</div>
+                <div class="sub-comp-grid">
+                    <div class="comp-level-row"><span class="comp-level-label">Java</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:70%"></div></div><span class="comp-pct">70%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Management</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:65%"></div></div><span class="comp-pct">65%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Anglais</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:80%"></div></div><span class="comp-pct">80%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">Communication</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:75%"></div></div><span class="comp-pct">75%</span></div>
+                    <div class="comp-level-row"><span class="comp-level-label">PPP</span><div class="sub-bar-track"><div class="sub-bar-fill" style="width:70%"></div></div><span class="comp-pct">70%</span></div>
+                </div>
+                <div class="comp-bilan">
+                    <p><strong>Bilan :</strong> Excellente intégration en équipe grâce à l'usage quotidien des outils Git/GitHub et une communication claire. Mon Projet Professionnel et Personnel (PPP) est en parfaite adéquation avec le travail d'équipe agile.</p>
                 </div>
             </div>
         </div>
