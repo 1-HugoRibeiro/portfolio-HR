@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>The H1: Autres Projets</title>
+    </head>
+    <link rel="stylesheet" href="Portfolio.css" type="text/css">
+    <body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="image/Logo.png" alt="Logo" class="logo-img">
+                The H1
+            </div>
+            
+            <!-- Bouton menu (3 tirets) -->
+            <button class="menu" id="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Menu de navigation -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="Portfolio.html">Présentation</a></li>
+                <li><a href="Competence.html">Compétence</a></li>
+                <li><a href="Projet.html">Projets</a></li>
+                <li><a href="SAE.html">Autres Projets</a></li>
+            </ul>
+        </div>
+    </nav>
+        <h1 class="mid">Projets Universitaires</h1>
+        <h2 class="mid">Semestre 1</h2>
+        <div class="page">
+            <div>
+                <h3>SAÉ S1.01 : </h3>
+                <p></p>
+            </div>
+            <div>
+                <h3>SAÉ S1.02 : </h3>
+                <p>La saé S1.02 est la suite de la saé S1.01.  </p>
+            </div>            
+            <div>
+                <h3>SAÉ S1.04 : </h3>
+                <p>La saé S1.04 est aussi appelé </p>
+            </div>
+            <div>
+                <h3>SAÉ S1.05 : </h3>
+                <p>La saé S1.05 est aussi appelé </p>
+
+            </div>
+            <div>
+                <h3>SAÉ S1.06 : </h3>
+                <p>La saé s1.06, auusi appelé</p>
+            </div>
+        </div>
+        <h2 class="mid">Smestre 2</h2>
+        <div class="page">
+            <div>
+                <h3>SAÉ S2.01 : </h3>
+            </div>
+            <div>
+                <h3>SAÉ S2.02 : </h3>
+            </div>
+            <div>
+                <h3>SAÉ S2.04 : </h3>
+            </div>
+            <div>
+                <h3>SAÉ S2.05 : </h3>
+            </div>
+            <div>
+                <h3>SAÉ S2.06 : </h3>
+            </div>
+        </div>
+    </body>
+    <script>
+        // Récupérer les éléments HTML
+        const menu = document.getElementById('menu');
+        const navMenu = document.getElementById('navMenu');
+
+        // Ajouter un écouteur d'événement sur le clic du bouton menu
+        menu.addEventListener('click', function() {
+            // Alterner (toggle) la classe 'active' sur le bouton et le menu
+            menu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu automatiquement quand on clique sur un lien
+        const navLinks = document.querySelectorAll('.nav-menu');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('Loaded', function () {
+            const Qui = document.getElementById('Présentation');
+            if(Qui){
+                Qui.addEventListener('click', function() {
+                    window.location.href = 'Présentation.html';
+                });
+            }
+        });
+    </script>
+</html>

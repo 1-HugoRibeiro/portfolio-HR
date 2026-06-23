@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>The H1</title>
+    </head>
+    <link rel="stylesheet" href="Portfolio.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto&display=swap" rel="stylesheet">
+    <body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="image/Logo.png" alt="Logo" class="logo-img">
+                The H1
+            </div>
+            
+            <!-- Bouton menu (3 tirets) -->
+            <button class="menu" id="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Menu de navigation -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="Portfolio.html">Présentation</a></li>
+                <li><a href="Competence.html">Compétence</a></li>
+                <li><a href="Projet.html">Projets</a></li>
+                <li><a href="SAE.html">Autres Projets</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="spe-fixe">
+            </div>
+
+    <div class="page-container">
+        <div class="sidebar">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    <img src="image/Moi.jpg" alt="Photo de profil" style="width: 100%; height: 100%; object-fit: cover; border-radius: 18px;">
+                </div>
+            </div>
+            <!-- partie fixe -->
+             <ul>
+                <li>HUGO RIBEIRO</li>
+                <li>20 ans</li>
+                <li>Étudiant en BUT2 INFORMATIQUE</li>
+                <li>
+                    <i class="fa fa-envelope"></i> 
+                    <a href="mailto:hugo.ribeiro4829@gmail.com" id="other-color">Mail</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/hugo-ribeiro-a10436297/" id="other-color">Linkedin</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-github"></i>
+                    <a href="https://github.com/1-HugoRibeiro" id="other-color">Github</a>
+                </li>
+                <li>Français : Langue maternelle</li>
+                <li>Espagnol : B1-B2</li>
+                <li>Anglais : B1</li>
+                <li>
+                    <i class="fa-brands fa-page"></i>
+                    <a href="Competence.html" id="other-color">Html</a> 3,5/5</li>
+                <li>
+                    <i class="fa-brands fa-page" ></i>
+                    <a href="Competence.html" id="other-color">Java</a> 2,5/5</li>
+                <li>
+                    <i class="fa-brands fa-page" ></i>
+                    <a href="Competence.html" id="other-color">SQL</a> 3/5</li>
+                <li>Visual Studio Code</li>
+                <li>Linux Ubuntu/Débian</li>
+             </ul>
+        </div>             
+        <div class="contenu">                 
+            <!-- partie scrollable normale -->
+             <div class="image-contenu">
+                <div class="midtop">
+                    Bienvenue. Je m'appelle Hugo Ribeiro et j'ai 20 ans.<br/> <br/>
+                    Je suis en 2ème année de BUT informatique à l'IUT de Villetaneuse.
+                    Avant cela, j'ai fait un BAC STI2D (Sciences et Technologie de l'Industrie et du Développement Durable) option SIN (Systèmes d'Information et Numérique).
+                    <br/>
+                    <br/>
+                    Durant mes deux années de BUT informatique, j'ai pu acquérir des compétences en codage informatique en Java, en SQL et en HTML.  
+                    J'ai pu, par ailleur, améliorer ces compétences lors de différents projet universitaire, comme, par exemple, un jeu d'échecs en java, une création et implémentation d'une base de données en PostgreSql ou un site web pour les 24h de l'informatique en html. 
+                    <br/>
+                    <br/>
+                    Le développement web et le développement full-stack sont des notions qui m'intéressent beaucoup et j'aimerais, à la suite de mes études, pouvoir m'orienter dans l'un de ces secteurs pour devenir développeur web ou développeur full-stack.
+                    <br/>
+                    <br/>
+                    <img src="image/dev_web.jpg">
+                    <br/>
+                    <br/>
+                    En février-mars 2026, j'ai réaliser un stage de 8 semaines en entreprise en tant que développeur informatique pour un atelier de pâtisserie, glacerie et chocolaterie. Lors de ce stage, j'ai du apprendre ce qu'était un iste WordPress et comment il était réaliser.
+                    J'ai aussi du faire faire une extension php, à part, pour pouvoir récupérer des étiquettes de ce colis sur d'autres site internet. Grâce à cette expérience, 
+                    j'ai pu utiliser et améliorer les bases que j'avais acquis en php quelque mois avant, lors d'une saé, en utilisant une approche MVC.
+                    <br/>
+                    <br/>
+               </div>             
+            </div>
+        </div>         
+    </div>
+
+    <footer>
+    </footer>
+
+    </body>
+    <script>
+        // Récupérer les éléments HTML
+        const menu = document.getElementById('menu');
+        const navMenu = document.getElementById('navMenu');
+
+        // Ajouter un écouteur d'événement sur le clic du bouton menu
+        menu.addEventListener('click', function() {
+            // Alterner (toggle) la classe 'active' sur le bouton et le menu
+            menu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu automatiquement quand on clique sur un lien
+        const navLinks = document.querySelectorAll('.nav-menu');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('Loaded', function () {
+            const Qui = document.getElementById('Présentation');
+            if(Qui){
+                Qui.addEventListener('click', function() {
+                    window.location.href = 'Présentation.html';
+                });
+            }
+        });
+
+        /* window.addEventListener('scroll', function() {
+            const banniere = document.querySelector('.banniere img');
+            const hauteurBanniere = banniere.offsetHeight;
+            const scroll = window.scrollY;
+
+            // L'image disparait progressivement en scrollant
+            const opacite = 1 - (scroll / hauteurBanniere);
+            banniere.style.opacity = Math.max(0, opacite);
+        }); */
+
+        const banniere = document.querySelector('.banniere-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+          });
+        });
+
+        observer.observe(banniere);
+    </script>
+</html>
