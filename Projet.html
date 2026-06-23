@@ -1,93 +1,104 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>The H1: Projet</title>
-        </head>
-        <link rel="stylesheet" href="Portfolio.css" type="text/css">
-        <body>
-            <nav>
-                <div class="nav-container">
-                    <div class="logo">
-                        <img src="image/Logo.png" alt="Logo" class="logo-img">
-                        The H1
-                    </div>
-            
-                <!-- Bouton menu (3 tirets) -->
-                <button class="menu" id="menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The H1 : Projets</title>
+    <link rel="stylesheet" href="Portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
 
-                <!-- Menu de navigation -->
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="Portfolio.html">Présentation</a></li>
-                <li><a href="Competence.html">Compétence</a></li>
-                <li><a href="Projet.html">Projets</a></li>
-                <li><a href="SAE.html">Autres Projets</a></li>
-                </ul>
-            </div>
-            </nav>
+<nav>
+    <div class="nav-container">
+        <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="logo">
+            <img src="image/Logo.png" alt="Logo" class="logo-img">
+            The H1
+        </div>
+    </div>
+</nav>
 
-            <div class="midtop">
-                <div class="mid">
-                    <h1>Projet Personnel</h1>
+<div class="nav-overlay" id="navOverlay"></div>
+<ul class="nav-menu" id="navMenu">
+    <li><a href="Portfolio.html">Présentation</a></li>
+    <li><a href="Competence.html">Compétence</a></li>
+    <li><a href="Projet.html" class="active">Projets</a></li>
+    <li><a href="SAE.html">Autres Projets</a></li>
+</ul>
+
+<main class="main-content" style="margin-left:0; max-width:900px; margin:0 auto; padding-top:2.5rem;">
+
+    <div class="reveal" style="margin-bottom:2rem;">
+        <p class="intro-eyebrow">// Réalisations</p>
+        <h1 style="font-size:1.8rem; margin-bottom:0.5rem;">Projets</h1>
+    </div>
+
+    <!-- Projets personnels -->
+    <div class="section-card reveal">
+        <div class="section-header">
+            <span class="dot"></span>
+            <h2>Projets personnels</h2>
+        </div>
+        <p style="font-style:italic; color:var(--text-muted);">Section en cours de construction — à venir.</p>
+    </div>
+
+    <!-- Projets universitaires -->
+    <div class="section-card reveal">
+        <div class="section-header">
+            <span class="dot"></span>
+            <h2>Projets universitaires</h2>
+        </div>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-icon">🐝</div>
+                    <h3>La Nuit de l'Info 2025</h3>
                 </div>
-                </br>
-                <h2>Stage en Informatique</h2>
-                <p>J'ai réaliser un stage en entreprise en tant que développeur PHP en février-mars 2026 pour une durée de 8 semaines.</p>
-                
-                <!-- <h1>Projet Projet Professionnel</h1> -->
-                </br>
-                </br>
-                <div class="mid">
-                    <h1>Projet Universitaire</h1>
+                <p>
+                    Participation avec l'équipe Monthy Python du jeudi 4 décembre 16h34 au vendredi 5 décembre 8h04.
+                    Développement d'un mini-jeu : une abeille se déplace aléatoirement sur la page et transporte une phrase cachée.
+                    Le joueur doit cliquer sur l'abeille un nombre précis de fois pour gagner — nombre non révélé.
+                </p>
+                <div class="project-tags">
+                    <span class="project-tag">HTML</span>
+                    <span class="project-tag">CSS</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">Nuit blanche</span>
                 </div>
-                </br>
-                <h2>La nuit de l'info</h2>
-                <p>En décembre 2025, j'ai participé à la nuit de l'info avec l'équipe Monthy Python.
-                </br>Pendant cette nuit blanche, qui à durée du Jeudi 4 Décembre 16h34 au Vendredi 5 Décembre 8h04, nous avions pour but de réaliser plusieurs défis.
-                </br>Avec une personne de mon équipe, nous avions réaliser un défis.
-                </br>Ce défis avait pour but de réaliser une page pour voir s'afficher une phrase prise par une abeille qui, quand nous nous approchons de cette abeille, ce déplacait sur la page.
-                </br>Il fallait donc réussir à cliqué sur l'abeille, chose non aisé car elle ne fait que de se déplacer aléatoirement sur la page, un nombre définit mais non indiquer aux joueurs.
-                </p>
-                <img src="image/nuitdel'info2.png">
-                <p>Seul la patience pendant une blanche, dificile à trouver mais pas impossible, vous permettrais de réussir à l'attraper.
-                </br>En plus de cela, seul les plus déterminé et les moins à fleur de peau pouvais trouver le nombre exact de fois ou l'abeille se déplacait.
-                </p>
-                </br>
             </div>
-            
-        </body>
-        <script>
-            // Récupérer les éléments HTML
-            const menu = document.getElementById('menu');
-            const navMenu = document.getElementById('navMenu');
 
-            // Ajouter un écouteur d'événement sur le clic du bouton menu
-            menu.addEventListener('click', function() {
-            // Alterner (toggle) la classe 'active' sur le bouton et le menu
-            menu.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+        </div>
 
-        // Fermer le menu automatiquement quand on clique sur un lien
-        const navLinks = document.querySelectorAll('.nav-menu');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                menu.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+        <!-- Image du projet -->
+        <div style="margin-top:1.5rem;">
+            <img src="image/nuitdel'info2.png" alt="Capture nuit de l'info" class="content-img">
+        </div>
 
-        document.addEventListener('Loaded', function () {
-            const Qui = document.getElementById('Présentation');
-            if(Qui){
-                Qui.addEventListener('click', function() {
-                    window.location.href = 'Présentation.html';
-                });
-            }
-        });
-    </script>
+    </div>
+
+</main>
+
+<footer style="margin-left:0;">
+    <p>© 2026 Hugo Ribeiro · The H1</p>
+</footer>
+
+<script>
+(function() {
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('navMenu');
+    const overlay = document.getElementById('navOverlay');
+    function close() { btn.classList.remove('active'); menu.classList.remove('active'); overlay.classList.remove('active'); }
+    btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('active'); overlay.classList.toggle('active'); });
+    overlay.addEventListener('click', close);
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+</script>
+</body>
 </html>
