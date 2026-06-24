@@ -6,6 +6,105 @@
     <title>The H1 : Autres Projets</title>
     <link rel="stylesheet" href="Portfolio.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- STYLE DES CARTES DE SAÉ CLICKABLES --- */
+        .sae-card {
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .sae-card:hover {
+            transform: translateY(-3px);
+            border-color: #00d4ff !important;
+            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
+        }
+
+        /* --- SYSTÈME DE MODALE AU PREMIER PLAN --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 11, 14, 0.85); /* Fond assombri et flouté */
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999; /* Devant absolument tout le site */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Quand la modale est active */
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: #111319; /* Couleur de fond sombre de vos cartes */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animation d'agrandissement de la boîte interne */
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        /* Bouton de fermeture */
+        .modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 1.2rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .modal-close:hover {
+            background: #4811e0;
+            color: white;
+            border-color: #4811e0;
+        }
+
+        /* Contenu de la modale */
+        .modal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+        .modal-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        .modal-text {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+    </style>
 </head>
 <body>
 
@@ -29,59 +128,59 @@
     <li><a href="SAE.html" class="active">Autres Projets</a></li>
 </ul>
 
-<main class="main-content" style="margin-left:0; max-width:900px; margin:0 auto; padding-top:2.5rem;">
+<main class="main-content" style="margin-left:0; max-width:900px; margin:0 auto; padding-top:2.5rem; padding-bottom: 5rem;">
 
-    <div class="reveal" style="margin-bottom:2rem;">
-        <p class="intro-eyebrow">// Situations d'Apprentissage et d'Évaluation</p>
+    <div class="reveal" style="margin-bottom:2rem;"></div>
         <h1 style="font-size:1.8rem; margin-bottom:0.5rem;">Projets Universitaires</h1>
         <p>Travaux pratiques réalisés dans le cadre du BUT Informatique.</p>
     </div>
 
-    <!-- Semestre 1 -->
     <div class="sae-section-title reveal">Semestre 1</div>
     <div class="sae-grid reveal">
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S1.01" data-subtitle="Semestre 1 · Implémentation d'un besoin client" data-desc="Description complète de la SAÉ S1.01 : Modélisation et premier développement d'un réseau en python.
+                    Bilan : Le réseau en python avait quelque probèmes au niveau du codes (boucle qui n'aboutissent à rien, mauvaise utilisations des données).">
             <h3>SAÉ S1.01</h3>
-            <p>Description à compléter.</p>
+            <p>Cette saé avait pour but de créer un réseau en python pour aider le père noel à livré tous ces cadeaux.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S1.02" data-subtitle="Semestre 1 · Comparaison d'algorithmes" data-desc="Description complète de la SAÉ S1.02 : Suite directe de la S1.01. Réutilisation du code existant et amélioration de ce code pour répondre au nouvelle éxigence.
+        Bilan : saé mieux réussit car les notions ont été mieux utilisées et mieux comprises.">
             <h3>SAÉ S1.02</h3>
             <p>Suite de la SAÉ S1.01. Approfondissement des notions abordées.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S1.04" data-subtitle="Semestre 1 · Création d'une base de données" data-desc="Description complète de la SAÉ S1.04 : Conception d'un modèle conceptuel de données (MCD) et implémentation pratique d'une base de données relationnelle sous PostgreSQL.
+        Bilan : les bases de données à été créer et implémenter. Les colonne des tables étant mal construisent, la base de données ne donnait pas les données attendues.">
             <h3>SAÉ S1.04</h3>
-            <p>Description à compléter.</p>
+            <p>Création et implémentation d'une base de données avec MariaBD</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S1.05" data-subtitle="Semestre 1 · Recueil de besoins" data-desc="Description complète de la SAÉ S1.05 : Immersion dans l'étude d'un système économique réel, interviews et formalisation des attentes d'un client sous forme de cahier des charges.">
             <h3>SAÉ S1.05</h3>
             <p>Description à compléter.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S1.06" data-subtitle="Semestre 1 · Découverte de l'environnement économique" data-desc="Description complète de la SAÉ S1.06 : Analyse de l'organisation d'une entreprise du numérique, de ses rôles internes et de son modèle de communication interne/externe.">
             <h3>SAÉ S1.06</h3>
             <p>Description à compléter.</p>
         </div>
     </div>
 
-    <!-- Semestre 2 -->
     <div class="sae-section-title reveal">Semestre 2</div>
     <div class="sae-grid reveal">
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S2.01" data-subtitle="Semestre 2 · Développement d'une application" data-desc="Description complète de la SAÉ S2.01 : Conception orientée objet et développement d'une application Java dotée d'une interface graphique utilisateur dynamique.">
             <h3>SAÉ S2.01</h3>
             <p>Description à compléter.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S2.02" data-subtitle="Semestre 2 · Exploration algorithmique" data-desc="Description complète de la SAÉ S2.02 : Résolution de problèmes complexes par la théorie des graphes et la manipulation d'algorithmes de recherche de chemins optimaux.">
             <h3>SAÉ S2.02</h3>
             <p>Description à compléter.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S2.04" data-subtitle="Semestre 2 · Exploitation d'une base de données" data-desc="Description complète de la SAÉ S2.04 : Écriture de requêtes SQL avancées et création d'une interface web dynamique en PHP/MVC connectée à la base de données.">
             <h3>SAÉ S2.04</h3>
             <p>Description à compléter.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S2.05" data-subtitle="Semestre 2 · Gestion de projet" data-desc="Description complète de la SAÉ S2.05 : Planification et pilotage d'un projet de groupe. Utilisation de diagrammes de Gantt et répartition des tâches techniques.">
             <h3>SAÉ S2.05</h3>
             <p>Description à compléter.</p>
         </div>
-        <div class="sae-card">
+        <div class="sae-card" data-title="SAÉ S2.06" data-subtitle="Semestre 2 · Organisation d'un travail d'équipe" data-desc="Description complète de la SAÉ S2.06 : Application des méthodologies agiles en équipe, gestion du versioning via Git et rédaction de documentations techniques de qualité.">
             <h3>SAÉ S2.06</h3>
             <p>Description à compléter.</p>
         </div>
@@ -89,12 +188,22 @@
 
 </main>
 
+<div class="modal-overlay" id="saeModal">
+    <div class="modal-box">
+        <button class="modal-close" id="closeModal" aria-label="Fermer">&times;</button>
+        <div class="modal-title" id="modalTitle">Titre du Projet</div>
+        <div class="modal-subtitle" id="modalSubtitle">// Sous-titre</div>
+        <div class="modal-text" id="modalText">Description détaillée du projet...</div>
+    </div>
+</div>
+
 <footer style="margin-left:0;">
     <p>© 2026 Hugo Ribeiro · The H1</p>
 </footer>
 
 <script>
 (function() {
+    // Menu mobile hamburger
     const btn = document.getElementById('menuBtn');
     const menu = document.getElementById('navMenu');
     const overlay = document.getElementById('navOverlay');
@@ -102,8 +211,47 @@
     btn.addEventListener('click', () => { btn.classList.toggle('active'); menu.classList.toggle('active'); overlay.classList.toggle('active'); });
     overlay.addEventListener('click', close);
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    
+    // Animation d'apparition au défilement (Intersection Observer)
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // --- GESTION DE LA FENÊTRE MODALE ---
+    const modal = document.getElementById('saeModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const mTitle = document.getElementById('modalTitle');
+    const mSubtitle = document.getElementById('modalSubtitle');
+    const mText = document.getElementById('modalText');
+
+    // Écouter le clic sur chaque carte de SAÉ
+    document.querySelectorAll('.sae-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // Récupérer les informations injectées dans le code HTML de la carte
+            const title = card.getAttribute('data-title');
+            const subtitle = card.getAttribute('data-subtitle');
+            const desc = card.getAttribute('data-desc');
+
+            // Mettre à jour le texte à l'intérieur de la modale au premier plan
+            mTitle.textContent = title;
+            mSubtitle.textContent = subtitle;
+            mText.textContent = desc;
+
+            // Faire apparaître la modale
+            modal.classList.add('active');
+        });
+    });
+
+    // Fermer la modale au clic sur la croix
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    // Fermer la modale si l'utilisateur clique en dehors de la boîte centrale
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
 })();
 </script>
 </body>
