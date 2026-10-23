@@ -547,7 +547,7 @@ section { scroll-margin-top: var(--nav-h); }
 .big-body p { font-size: 0.92rem; color: var(--muted); line-height: 1.85; }
 
 /* partie 2 : petits projets, 3 par 3 */
-.mini-wrap { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: stretch; }
+.mini-wrap { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: stretch; }
 
 .mini-arrow {
     align-self: center;
@@ -564,7 +564,7 @@ section { scroll-margin-top: var(--nav-h); }
     transition: background 0.2s, transform 0.2s;
 }
 
-.mini-arrow:hover { background: var(--accent-dim); transform: translateX(-3px); }
+.mini-arrow:hover { background: var(--accent-dim); transform: translateX(3px); }
 
 .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 
@@ -585,7 +585,7 @@ section { scroll-margin-top: var(--nav-h); }
 .mini-card:nth-child(3n+2).enter { animation-delay: 0.06s; }
 .mini-card:nth-child(3n).enter { animation-delay: 0.12s; }
 
-@keyframes slideIn { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: none; } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
 
 .mini-card:hover,
 .mini-card:focus-visible { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); outline: none; }
@@ -756,7 +756,7 @@ footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: 
     .comp-grid { grid-template-columns: 1fr; }
     .big-body { padding: 1.5rem; }
     .mini-wrap { grid-template-columns: 1fr; }
-    .mini-arrow { width: 100%; height: 44px; order: 2; }
+    .mini-arrow { width: 100%; height: 44px; }
     .mini-arrow:hover { transform: none; }
     .mini-grid { grid-template-columns: 1fr; }
     .level-label { width: 78px; }
@@ -800,7 +800,7 @@ footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: 
 <section class="hero" id="accueil">
     <!-- Illustration plein écran : dépose ton image dans image/Moi.jpg (ou change le nom ci-dessous) -->
     <div class="hero-bg">
-        <img src="image/" alt="Illustration de Hugo Ribeiro" onerror="this.remove()">
+        <img src="image/Moi.jpg" alt="Illustration de Hugo Ribeiro" onerror="this.remove()">
     </div>
 
     <div class="container">
@@ -1169,7 +1169,6 @@ footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: 
         <h3 class="part-title reveal"><span class="num">02</span> Autres projets</h3>
 
         <div class="mini-wrap reveal" id="miniWrap">
-            <button class="mini-arrow" id="miniArrow" type="button" aria-label="Voir les 3 projets suivants">❮</button>
 
             <div class="mini-grid" id="miniGrid">
 
@@ -1306,6 +1305,7 @@ footer p { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: 
                 </article>
 
             </div>
+            <button class="mini-arrow" id="miniArrow" type="button" aria-label="Voir les 3 projets suivants">❯</button>
         </div>
 
         <div class="mini-pager reveal">
